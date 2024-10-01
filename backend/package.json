@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "server": "node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require esm tests/*/*.test.js"
   },
   "author": "Enzo Vullo",
   "license": "ISC",
@@ -16,5 +16,10 @@
     "express": "^4.21.0",
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "esm": "^3.2.25",
+    "mocha": "^10.7.3"
   }
 }
