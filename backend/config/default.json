@@ -2,5 +2,9 @@
     "server": {
         "host": "localhost",
         "port": 8000
+    },
+    "database": {
+        "dialect": "sqlite",
+        "storage": "../data/database.sqlite"
     }
 }

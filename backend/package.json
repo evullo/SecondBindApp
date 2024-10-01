@@ -1,9 +1,9 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "server": "node src/index.js",
+    "server": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Enzo Vullo",
@@ -11,8 +11,10 @@
   "description": "",
   "type": "module",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "config": "^3.3.12",
-    "express": "^4.21.0"
-  },
-  "devDependencies": {}
+    "express": "^4.21.0",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7"
+  }
 }
