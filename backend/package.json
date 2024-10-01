@@ -1,0 +1,18 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "server": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Enzo Vullo",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "config": "^3.3.12",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {}
+}
