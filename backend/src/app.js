@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use('/inventory', inventoryRoutes);
 
 // Sync with database and populate it
-sequelize.sync({ force: false })
+sequelize.sync({force: true, alter: true})
   .then(() => {
     populateInventory();
     console.log('Database synced and inventory populated');

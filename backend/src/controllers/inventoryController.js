@@ -1,4 +1,5 @@
 import Inventory from '../models/inventory.js';
+import { validateISBN } from '../utils/isbnValidator.js';
 
 // Get all books method
 export const getAllBooks = async (req, res) => {
@@ -15,10 +16,15 @@ export const addBook = async (req, res) => {
   const { title, author, genre, publicationDate, isbn } = req.body;
 
   // Validate data
-  if (!title || !author || !isbn) {
-    return res.status(400).json({ message: 'The fields title, author and isbn are required' });
+  if (!title || !author) {
+    return res.status(400).json({ message: 'The fields title and author are required' });
   }
 
+  if(!validateISBN(isbn)) {
+    return res.status(400).json({ message: 'ISBN number is not valid' });
+  }
+
+  // Add new data to the database
   try {
     const newBook = await Inventory.create({
       title,
