@@ -1,6 +1,7 @@
 import express from 'express';
 import config from 'config';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import sequelize from './database/index.js';
 import inventoryRoutes from './routes/inventory.js';
 import { populateInventory } from './controllers/inventoryController.js';
@@ -11,6 +12,9 @@ const port = config.get('server.port');
 // Middleware registration
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
 
 // Routes
 app.use('/inventory', inventoryRoutes);

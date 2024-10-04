@@ -19,6 +19,8 @@ defineProps({link: String})
   font-size: 1.5em;
   display: inline-block;
   position: relative;
+  font-weight: 600;
+  filter: drop-shadow(0px 0px 3px #000000);
 }
 
 .link::after {

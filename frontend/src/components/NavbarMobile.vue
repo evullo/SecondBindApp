@@ -36,8 +36,8 @@ const toggleMenu = () => {
   z-index: 13;
   cursor: pointer;
   background-color: black;
-  height: 15vw;
-  width: 15vw;
+  height: 17vw;
+  width: 17vw;
   padding: 0.25rem;
   border-radius: 50%;
   transition: all 0.5s ease-in-out;
@@ -69,7 +69,7 @@ const toggleMenu = () => {
 }
 
 .icon_container {
-    position: absolute;
+    position: fixed;
     top: 1.25rem;
     left: 1.25rem;
     z-index: 15;
