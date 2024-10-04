@@ -19,7 +19,7 @@ export const addBook = async (req, res) => {
   if (!title || !author) {
     return res.status(400).json({ message: 'The fields title and author are required' });
   }
-
+  
   if(!validateISBN(isbn)) {
     return res.status(400).json({ message: 'ISBN number is not valid' });
   }

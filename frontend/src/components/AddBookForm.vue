@@ -1,5 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { useBookStore } from '../stores/bookStore'
+
+const bookStore = useBookStore()
 
 const title = ref('')
 const author = ref('')
@@ -59,35 +62,20 @@ const submitForm = async () => {
     isbn: isbn.value
   }
 
-  await fetch('http://localhost:8000/inventory/add', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-  })
-  .then(async (response) => {
-    if (!response.ok) {
-        const errorData = await response.json();
-        error.value = `${errorData.message}`;
-        setTimeout(() => {error.value= ''}, 5000);
-        return;
-    }
+  try {
+    await bookStore.saveNewBook(formData)
+    success.value = 'Book added successfully!'
+    setTimeout(() => { success.value = '' }, 5000)
 
-    const result = await response.json();
-    success.value = 'Book added successfully!';
-    setTimeout(() => {success.value= ''}, 5000);
-    
     title.value = ''
     author.value = ''
     genre.value = ''
     date.value = ''
     isbn.value = ''
-  })
-  .catch((error) => {
-    error.value= `Error: ${error.message}`
-    setTimeout(() => {error.value= ''}, 5000)
-  })
+  } catch (error) {
+    error.value = `Error: ${error.message}`
+    setTimeout(() => { error.value = '' }, 5000)
+  }
 }
 </script>
 

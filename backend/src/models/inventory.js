@@ -4,11 +4,26 @@ import sequelize from '../database/index.js';
 class Inventory extends Model {}
 
 Inventory.init({
-  title: DataTypes.STRING,
-  author: DataTypes.STRING,
-  genre: DataTypes.STRING,
-  publicationDate: DataTypes.DATEONLY,
-  isbn: DataTypes.NUMBER
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  author: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  genre: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  publicationDate: {
+    type: DataTypes.DATEONLY, 
+    allowNull: false
+  },
+  isbn: {
+    type: DataTypes.STRING,
+    allowNull: false
+  }
 }, {
   sequelize,
   modelName: 'inventory',
