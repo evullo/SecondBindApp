@@ -1,4 +1,6 @@
 <script setup>
+import BookFilter from '../components/BookFilter.vue'
+import BookList from '../components/BookList.vue'
 import MainTitle from '../components/items/MainTitle.vue'
 import SectionContainer from '../components/items/SectionContainer.vue'
 </script>
@@ -7,7 +9,8 @@ import SectionContainer from '../components/items/SectionContainer.vue'
     <MainTitle>Books inventory</MainTitle>
 
     <SectionContainer>
-        <p>My section</p>
+        <BookFilter></BookFilter>
+        <BookList></BookList>
     </SectionContainer>
 </template>
 
