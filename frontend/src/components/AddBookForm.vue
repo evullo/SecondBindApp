@@ -33,8 +33,10 @@ const validateDate = computed(() => {
 })
 
 const validateIsbn = computed(() => {
-  const regex = /^(([0-9]-[0-9]{3}-[0-9]{5}-[0-9])|([0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9])|([0-9]{13})|([0-9]{10}))$/
-  if (isbn.value && !regex.test(isbn.value)) return 'ISBN must be 10 or 13 digits long'
+  const regex = /^(?:(?:\d[\ |-]?){9}[\dX]|(?:\d[\ |-]?){13})$/
+  if (isbn.value && !regex.test(isbn.value.replace(/[\ |-]/g, ''))) {
+    return 'ISBN must be 10 or 13 digits long'
+  }
   return ''
 })
 
