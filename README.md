@@ -23,4 +23,7 @@ npm install
 npm run dev
 ```
 
-## Details
+## How to use the app ?
+First of all, make sure that the backend and the frontend are launched correctly. When you land on the homepage of the application, you should see an inventory with every books in the database. You can then filter this list by using the 3 inputs at the top, you can also export the list containing every books in a JSON or a CSV format by clicking the 2 buttons under the inputs.
+
+The second part of the app contains a form to add a new book to the inventory. Each field must be filled to save the new book. Warning : publication date should not be in the future and ISBN number have to contains 10 or 13 digits. ISBN number is also verified in the backend to check if it is a valid number. Please note that every not valid ISBN number will be rejected.
