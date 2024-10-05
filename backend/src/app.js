@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import sequelize from './database/index.js';
 import inventoryRoutes from './routes/inventory.js';
+import booksRoutes from './routes/books.js';
 import { populateInventory } from './controllers/inventoryController.js';
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(cors({
 
 // Routes
 app.use('/inventory', inventoryRoutes);
+app.use('/books', booksRoutes);
 
 // Sync with database and populate it
 sequelize.sync({force: true, alter: true})
